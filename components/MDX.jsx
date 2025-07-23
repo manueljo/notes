@@ -1,7 +1,13 @@
+import Markdown from "markdown-to-jsx"
 
-const MDX = () => {
+const MDX = (props) => {
+  const {text} = props;
   return (
-    <div></div>
+    <article>
+      <Markdown>
+        {text.trim() }
+      </Markdown>
+    </article>
   )
 }
 
