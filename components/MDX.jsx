@@ -5,7 +5,7 @@ const MDX = (props) => {
   return (
     <article>
       <Markdown>
-        {text.trim() }
+        {text.trim() || "Create content to view it here."}
       </Markdown>
     </article>
   )
