@@ -1,8 +1,11 @@
+import { Suspense } from 'react';
 
 export default function NotesPageLayout({children}) {
   return (
-    <div>
-        {children}
-    </div>
+        <>
+            <Suspense fallback={<h6>Loading...</h6>}>
+                {children}
+            </Suspense>
+        </>
   );
 }

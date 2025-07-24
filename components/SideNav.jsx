@@ -1,22 +1,20 @@
+import { useAuth } from "@/context/AuthContext";
+
 const SideNav = (props) => {
-  const notes = [
-    "lorem ipsum",
-    "dolor sit amet",
-    "consectetur adipiscing elit",
-    "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-  ];
+  const { noteIds, setNoteIds, handleCreateNote } = props;
+  const {logOut} = useAuth();
 
   return (
     <section>
       <h1>NOTES</h1>
-      <button>Add Note</button>
+      <button onClick={handleCreateNote}>Add Note</button>
       <div>
-        {notes.length === 0 ? (
+        {noteIds.length === 0 ? (
           <div>
             <span>No Note Available</span>
           </div>
         ) : (
-          notes.map((note, index) => (
+          noteIds.map((note, index) => (
             <div key={index} className="note-item">
               <i className="fa-solid fa-file"></i>
               <span>{note}</span>
@@ -27,7 +25,7 @@ const SideNav = (props) => {
           ))
         )}
       </div>
-      <button>Log out</button>
+      <button onClick={logOut}>Log out</button>
     </section>
   );
 };

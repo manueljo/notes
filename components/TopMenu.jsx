@@ -1,5 +1,5 @@
 const TopMenu = (props) => {
-    const { isEditable, toggleEditable } = props;
+    const { isEditable, toggleEditable, savingNote, handleSaveNote } = props;
 
   return (
     <nav>
@@ -7,7 +7,7 @@ const TopMenu = (props) => {
         <i className="fa-solid fa-bars"></i>
       </div>
       <div>
-        <button>Save</button>
+        <button onClick={handleSaveNote} disabled={savingNote}>Save</button>
         {
             isEditable ?
             (<button onClick={toggleEditable}>View</button>)
