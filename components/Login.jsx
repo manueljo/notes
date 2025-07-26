@@ -42,21 +42,23 @@ const login = () => {
         <p>Prepare and arrange your notes in a simple way.</p>
         <h2>{isRegister ? 'Create an Account' : 'Sign In'}</h2>
         {error && <p className="error">{error}</p>}
-        <div>
+        <div className="login-input">
           <p>Email</p>
           <input value={email} onChange={(e)=>{setEmail(e.target.value)}} type="email" placeholder="@example.com" />
         </div>
-        <div>
+        <div className="login-input">
           <p>Password</p>
           <input value={password} onChange={(e) => {setPassword(e.target.value)}} type="password" placeholder="***********" />
         </div>
-        <button disabled={!isEntryValid || isUserAuthenticating} onClick={handleUserAuthentication}>{isUserAuthenticating ? 'Loading...' : 'Submit'}</button>
-        <button onClick={(e)=>{setIsRegister(!isRegister)}}>{isRegister ? 'Sign In' : 'Sign Up'}</button>
-        <p>
-          <a href="">Forgot password?</a>
-        </p>
-        <div>
-          <a href="">View code</a>
+        <button className="btn  btn-primary" disabled={!isEntryValid || isUserAuthenticating} onClick={handleUserAuthentication}>{isUserAuthenticating ? 'Loading...' : 'Submit'}</button>
+        <button className="btn btn-secondary" onClick={(e)=>{setIsRegister(!isRegister)}}>{isRegister ? 'Sign In' : 'Sign Up'}</button>
+        <div className="login-footer">
+          <p>
+            <a href="">Forgot password?</a>
+          </p>
+          <p>
+            <a href="">View code</a>
+          </p>
         </div>
       </div>
     </>

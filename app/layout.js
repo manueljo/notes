@@ -1,3 +1,4 @@
+import './globals.css';
 import AuthProvider from "@/context/AuthContext";
 
 export const metadata = {
@@ -14,7 +15,6 @@ export default function RootLayout({ children }) {
       <AuthProvider>
         <body>
           <div id="app">{children}</div>
-          <div id="modal"></div>
         </body>
       </AuthProvider>
     </html>
