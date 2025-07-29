@@ -1,14 +1,14 @@
-import Markdown from "markdown-to-jsx"
+import Markdown from "markdown-to-jsx";
 
 const MDX = (props) => {
-  const {text} = props;
+  const { text } = props;
   return (
-    <article>
-      <Markdown>
-        {text.trim() || "Create content to view it here."}
-      </Markdown>
+    <article className="mdx-container">
+      <div>
+        <Markdown>{text.trim() || "Create content to view it here."}</Markdown>
+      </div>
     </article>
-  )
-}
+  );
+};
 
-export default MDX
+export default MDX;

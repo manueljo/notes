@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { use, useEffect } from "react";
 
 const SideNav = (props) => {
-  const { noteIds, setNoteIds, handleCreateNote, setIsEditable } = props;
+  const { noteIds, setNoteIds, handleCreateNote, setIsEditable, setShowSideNav } = props;
   const {logOut, currentUser} = useAuth();
   const router = useRouter();
 
@@ -48,8 +48,9 @@ const SideNav = (props) => {
 
 
   return (
-    <section>
+    <section className="side-nav">
       <h1>NOTES</h1>
+      <button className="close" onClick={() => {setShowSideNav(false)}}>X</button>
       <button onClick={handleCreateNote}>New Note</button>
       <div>
         {noteIds.length === 0 ? (

@@ -1,18 +1,18 @@
 const TopMenu = (props) => {
-    const { isEditable, toggleEditable, savingNote, handleSaveNote } = props;
+    const { isEditable, toggleEditable, savingNote, handleSaveNote, setShowSideNav } = props;
 
   return (
-    <nav>
-      <div>
+    <nav className="top-menu">
+      <div onClick={() => setShowSideNav((prev) => !prev)} className="menu-icon">
         <i className="fa-solid fa-bars"></i>
       </div>
       <div>
-        <button onClick={handleSaveNote} disabled={savingNote}>Save</button>
+        <button className="btn btn-secondary" onClick={handleSaveNote} disabled={savingNote}>Save</button>
         {
             isEditable ?
-            (<button onClick={toggleEditable}>View</button>)
+            (<button className="btn btn-primary" onClick={toggleEditable}>View</button>)
             :
-            (<button onClick={toggleEditable}>Edit</button>)
+            (<button className="btn btn-primary" onClick={toggleEditable}>Edit</button>)
         }
       </div>
     </nav>

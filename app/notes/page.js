@@ -8,11 +8,12 @@ import { db } from "@/firebase";
 import { doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import Router from "next/navigation";
 
 export default function NotesPage() {
   const {currentUser, isUserLoading} = useAuth();
   const [isEditable, setIsEditable] = useState(true);
-  const [showSideNav, setShowSideNav] = useState(true);
+  const [showSideNav, setShowSideNav] = useState(false);
   // const [text, setText] = useState('');
   const [note, setNote] = useState({
     content: '',
@@ -21,6 +22,7 @@ export default function NotesPage() {
   const [savingNote, setSavingNote] = useState(false);
   const searchParams = useSearchParams();
   const [isLoading, setIsLoading] = useState(false);
+  const router = Router;
 
 
    
@@ -106,15 +108,16 @@ export default function NotesPage() {
   }
   
   if (!currentUser){
-    window.location.href = '/';
+    // window.location.href = '/';
+    router.redirect('/');
   }
 
 
 
   return (
     <main>
-      <TopMenu savingNote={savingNote} handleSaveNote={handleSaveNote} isEditable={isEditable} toggleEditable={toggleEditable}/>
-      {showSideNav && <SideNav setIsEditable={setIsEditable} noteIds={noteIds} setNoteIds={setNoteIds} handleCreateNote={handleCreateNote} />}
+      <TopMenu savingNote={savingNote} handleSaveNote={handleSaveNote} setShowSideNav={setShowSideNav} isEditable={isEditable} toggleEditable={toggleEditable}/>
+      {showSideNav && <SideNav setShowSideNav={setShowSideNav} setIsEditable={setIsEditable} noteIds={noteIds} setNoteIds={setNoteIds} handleCreateNote={handleCreateNote} />}
       {
         isEditable ?
         <Editor text={note.content} setText={handleEditNote} />
