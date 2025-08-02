@@ -51,8 +51,8 @@ const SideNav = (props) => {
     <section className="side-nav">
       <h1>NOTES</h1>
       <button className="close" onClick={() => {setShowSideNav(false)}}>X</button>
-      <button onClick={handleCreateNote}>New Note</button>
-      <div>
+      <button onClick={handleCreateNote} className="btn btn-primary">Add Note</button>
+      <div className="notes-list">
         {noteIds.length === 0 ? (
           <div>
             <span>No Note Available</span>
@@ -66,8 +66,10 @@ const SideNav = (props) => {
             <button onClick={() => {
             router.push('/notes?id=' + note) 
             setIsEditable(false)}} key={index} className="note-item">
-              <p>{noteText}</p>
-              <small>{date.split(' ').slice(1,4).join(' ')}</small>
+              <div className="note-content">
+                <p>{noteText}</p>
+                <small>{date.split(' ').slice(1,4).join(' ')}</small>
+              </div>
               <div onClick={(e)=>{
                 e.stopPropagation();
                 deleteNote(note);
@@ -78,7 +80,7 @@ const SideNav = (props) => {
           )})
         )}
       </div>
-      <button onClick={logOut}>Log out</button>
+      <button onClick={logOut} className="btn btn-secondary">Log out</button>
     </section>
   );
 };

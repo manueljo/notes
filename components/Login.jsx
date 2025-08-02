@@ -3,6 +3,7 @@
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Link from "next/link";
 
 const login = () => {
   const [email, setEmail] = useState('');
@@ -57,7 +58,7 @@ const login = () => {
             <a href="">Forgot password?</a>
           </p>
           <p>
-            <a href="">View code</a>
+            <Link href="https://github.com/manueljo/notes" target="_blank">View code</Link>
           </p>
         </div>
       </div>

@@ -87,6 +87,7 @@ input{
         background-color: #414142;
         color:#7d7d7e;
     }
+    padding-inline: 0.5rem;
 }
 
 .btn-primary {
@@ -127,11 +128,17 @@ input{
     top: 0;
     left: 0;
     width: 250px;
-    height: 100vh;
+    height: 100dvh;
     background-color: var(--background-secondary);
     padding: 1rem;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
+.side-nav h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
 .close{
@@ -174,4 +181,46 @@ input{
     margin: auto;
     margin-top: 0.5rem;
     max-width: 1200px;
+}
+
+.notes-list {
+    margin-top: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 80vh;
+    overflow-y: auto;
+}
+
+.note-item{
+    background-color: var(--color-primary);
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &:hover {
+        background-color: #f8f8f8;
+    }
+}
+
+.note-content p{
+    text-transform: capitalize;
+}
+
+.delete-button{
+    background-color: transparent;
+    border: none;
+    color: rgb(247, 85, 85);
+    cursor: pointer;
+    font-size: small;
+    transition: color 0.3s ease;
+    &:hover {
+        color: #ffffff;
+        background-color: red;
+        padding: 5px;
+        border-radius: 0.4rem;
+    }
 }
